@@ -1,0 +1,35 @@
+<h4>Ng switch example</h4>
+<ul [ngSwitch]="person">
+    <li *ngSwitchCase="'Mohan'">Hello Mohan</li>
+    <li *ngSwitchCase="'Sohan'">Hello Sohan</li>
+    <li *ngSwitchCase="'Vijay'">Hello Vijay</li>
+    <li *ngSwitchDefault>Bye Bye</li>
+</ul>
+<hr>
+<h4>Property Binding</h4>
+<div>
+    <a [href]="website.url" [textContent]="website.name"> asdfasdf</a>
+    <br>
+    <h4 [textContent]="myName"></h4>
+</div>
+<hr>
+<h4>Event Binding</h4>
+<div>
+    <input [value]="msg1" (input)="msg1=$event.target.value" />
+    <input [value]="msg1" (input)="setMsg($event.target.value)">
+    <p>{{msg1}}</p>
+    <h1 [innerHTML]="msg1"></h1>
+</div>
+<div>
+    <button class="btn btn-success" (click)="toggle3()">True</button>
+    <br><br>
+    <div *ngIf="toggleFlag3; then thenBlock else elseBlock"></div>
+
+    <ng-template #thenBlock>
+        Valid data !!!
+    </ng-template>
+    <ng-template #elseBlock>
+        In Valid data !!!
+    </ng-template>
+
+</div>

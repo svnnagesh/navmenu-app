@@ -1,0 +1,14 @@
+<div class="container">
+    <nav class="navbar navbar-inverse">
+        <ul class="nav navbar-nav">
+            <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"><a href="#" routerLink="/">Home</a></li>
+            <li routerLinkActive="active"><a href="#" routerLink="products">Products</a></li>
+            <li routerLinkActive="active"><a href="#" routerLink="services">Services</a></li>
+            <li routerLinkActive="active"><a href="#" routerLink="contact">Contact</a></li>
+            <li routerLinkActive="active"><a href="#" routerLink="employees">Employees</a></li>
+            <li routerLinkActive="active"><a href="#" [routerLink]="['/details', 2]">Emp. Details</a></li>
+        </ul>
+    </nav>
+    <div *ngIf="showLoadingIndicator" class="spinner"></div>
+    <router-outlet></router-outlet>
+</div>

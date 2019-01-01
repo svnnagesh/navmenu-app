@@ -1,0 +1,27 @@
+<h1 [class.bg-success]="dataFromChild" *ngIf="dataFromChild">Data passing from Child to Parent : {{dataFromChild}}</h1>
+<h2 [style.backgroundColor]="isBgApplied?'blue':'red'">Data passing from Child to parent using Template Reference : <span #h1Variable></span></h2>
+
+<div *ngFor="let employees of getEmployees; index as i;">
+    <div (click)="h1Variable.innerHTML = childComponent.getNameandGender()">
+        <div (click)="onClick(employees.id)">
+            <app-list-employees [employee]="employees" (notify)="handleNotify($event)" #childComponent></app-list-employees>
+        </div>
+    </div>
+</div>
+
+<ng-container *ngFor="let employees of getEmployees">
+    <div *ngIf="employees.gender=='Female'">
+        <div (click)="h1Variable.innerHTML = childComponent.getNameandGender()">
+            <app-list-employees [employee]="employees" (notify)="handleNotify($event)" #childComponent></app-list-employees>
+        </div>
+    </div>
+</ng-container>
+
+
+<!-- To check the input property changes with ngOnChanges hook with SimpleChanges property with previous and next changes values -->
+<div>
+
+    <button (click)="nextEmployee()" class="btn btn-success">VIew Next Employee</button>
+    <br> <br>
+    <app-list-employees [employee]="employeeToDisplay"></app-list-employees>
+</div>

@@ -1,0 +1,15 @@
+<p>
+    products works!
+</p>
+<div>
+    <input (keyup)="onKey($event)" type="text" class="form-control" />
+    <p>{{values}}</p>
+</div>
+
+<div>
+    <input #newHero (keyup.enter)="addHero(newHero.value)" (blur)="addHero(newHero.value); newHero.value='' ">
+    <button (click)="addHero(newHero.value)">Add</button>
+    <ul>
+        <li *ngFor="let hero of heroes">{{hero}}</li>
+    </ul>
+</div>
